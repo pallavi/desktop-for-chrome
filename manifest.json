@@ -1,0 +1,12 @@
+{
+  "manifest_version": 2,
+  "name": "Chrome Home",
+  "description": "My Chrome dashboard",
+  "version": "1.0",
+  "permissions": [
+    "storage"
+  ],
+  "chrome_url_overrides": {
+    "newtab": "src/index.html"
+  }
+}

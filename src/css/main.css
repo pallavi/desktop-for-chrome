@@ -1,0 +1,24 @@
+html {
+  height: 100%;
+}
+
+body {
+  height: 100%;
+  font-family: "Open Sans";
+}
+
+.container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+button {
+  border-radius: 10px;
+  border: none;
+  background-color: red;
+  color: white;
+  font-size: 20px;
+}
