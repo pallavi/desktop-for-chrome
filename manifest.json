@@ -4,9 +4,20 @@
   "description": "My Chrome dashboard",
   "version": "1.0",
   "permissions": [
+    "identity",
     "storage"
   ],
   "chrome_url_overrides": {
     "newtab": "src/index.html"
+  },
+  "content_security_policy": "script-src https://*.google.com 'unsafe-eval'; object-src 'self'",
+  "background": {
+    "scripts": ["src/js/calendar.js"]
+  },
+  "oauth2": {
+    "client_id": "684351759805-acrnrgfqhq33pcr6kdj654fp54ogu2km.apps.googleusercontent.com",
+    "scopes": [
+      "https://www.googleapis.com/auth/calendar.readonly"
+    ]
   }
 }
