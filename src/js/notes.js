@@ -1,5 +1,3 @@
-'use strict';
-
 function displayNotes() {
   document.getElementById('noteText').value = '';
   let noteList = document.getElementById('previousNotes');

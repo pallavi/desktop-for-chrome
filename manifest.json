@@ -4,6 +4,7 @@
   "description": "My Chrome dashboard",
   "version": "1.0",
   "permissions": [
+    "geolocation",
     "identity",
     "storage"
   ],
