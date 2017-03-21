@@ -5,14 +5,82 @@ html {
 body {
   height: 100%;
   font-family: "Open Sans";
+  margin: 0;
+  padding: 0;
+  background-color: #ace2e0;
 }
 
 .container {
+  position: fixed;
+  bottom: 0;
+}
+
+.background {
+  width: 100%;
+  min-height: auto;
+  bottom: 0vw;
+}
+
+.content {
+  position: absolute;
   height: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  width: 100%;
+  top: 0;
+  left: 0;
+}
+
+window {
+  background-color: rgba(255, 0, 0, 0.2);
+  position: absolute;
+  height: 53.5%;
+  width: 24%;
+  top: 9.16%;
+  left: 4.67%;
+}
+
+clock {
+  background-color: rgba(255, 0, 0, 0.2);
+  position: absolute;
+  height: 15.6%;
+  width: 15.9%;
+  top: 73.6%;
+  left: 6.6%;
+}
+
+calendar {
+  background-color: rgba(255, 0, 0, 0.2);
+  position: absolute;
+  height: 25%;
+  width: 25.2%;
+  top: 17.3%;
+  left: 36.8%;
+}
+
+laptop {
+  background-color: rgba(255, 0, 0, 0.2);
+  position: absolute;
+  height: 31.4%;
+  width: 30.4%;
+  top: 52.8%;
+  left: 34.6%;
+}
+
+board {
+  background-color: rgba(255, 0, 0, 0.2);
+  position: absolute;
+  height: 49.8%;
+  width: 22.9%;
+  top: 11%;
+  left: 71.5%;
+}
+
+note {
+  background-color: rgba(255, 0, 0, 0.2);
+  position: absolute;
+  height: 13.4%;
+  width: 7.7%;
+  top: 61%;
+  left: 86.6%;
 }
 
 button {
