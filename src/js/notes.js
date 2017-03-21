@@ -5,7 +5,12 @@ function displayNotes() {
   chrome.storage.sync.get('noteList', (data) => {
     if (data.noteList){
       for (var i = 0; i < data.noteList.length; i++) {
-        let note = document.createElement('li');
+        let noteBackground = document.createElement('li');
+        let note = document.createElement('div');
+        note.className += 'scrollable';
+        noteBackground.appendChild(note);
+        note.appendChild(document.createTextNode(data.noteList[i]));
+
         let del = document.createElement('button');
         let index = i;
         del.addEventListener('click', function() {
@@ -13,10 +18,15 @@ function displayNotes() {
           arr.splice(index, 1);
           chrome.storage.sync.set({ 'noteList': arr }, displayNotes);
         })
-        note.appendChild(document.createTextNode(data.noteList[i]));
-        note.appendChild(del);
-        console.log(note);
-        noteList.appendChild(note);
+        noteBackground.addEventListener('mouseover', function() {
+          del.style.display = 'block';
+        });
+        noteBackground.addEventListener('mouseout', function() {
+          del.style.display = 'none';
+        });
+        noteBackground.appendChild(del);
+
+        noteList.appendChild(noteBackground);
       }
     }
   })

@@ -96,6 +96,7 @@ calendar dt {
 }
 
 calendar dd {
+  color: #333333;
   margin-bottom: 2%;
   margin-left: 1%;
 }
@@ -110,12 +111,48 @@ laptop {
 }
 
 board {
-  background-color: rgba(255, 0, 0, 0.2);
   position: absolute;
   height: 49.8%;
   width: 22.9%;
   top: 11%;
   left: 71.5%;
+}
+
+board ul {
+  list-style-type: none;
+  padding: 1%;
+}
+
+board ul .scrollable {
+  height: 90%;
+  width: 80%;
+}
+
+board li {
+  position: relative;
+  background-color: #fcee21;
+  height: 29%;
+  width: 36%;
+  float: left;
+  margin-left: 4%;
+  margin-bottom: 4%;
+  padding: 4%;
+  font-family: "Coming Soon";
+  font-size: 1.3vw;
+  color: #333333;
+  word-wrap: break-word;
+}
+
+board li button {
+  display: none;
+  position: absolute;
+  top: -1px;
+  right: -1px;
+  border-radius: 10px;
+  border: none;
+  background-color: red;
+  color: white;
+  font-size: 20px;
 }
 
 note {
@@ -125,12 +162,4 @@ note {
   width: 7.7%;
   top: 61%;
   left: 86.6%;
-}
-
-button {
-  border-radius: 10px;
-  border: none;
-  background-color: red;
-  color: white;
-  font-size: 20px;
 }
