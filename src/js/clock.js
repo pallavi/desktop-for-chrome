@@ -11,7 +11,7 @@ function convertToStandardHours(hrs) {
 }
 
 function addZeroes(min) {
-  return (min < 10 ? "0" + min : min);
+  return (min < 10 ? '0' + min : min);
 }
 
 startTime();

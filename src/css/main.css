@@ -7,6 +7,7 @@ body {
   margin: 0;
   padding: 0;
   background-color: #ace2e0;
+  font-family: "Open Sans";
 }
 
 @font-face {
@@ -60,19 +61,43 @@ clock {
   left: 6.6%;
 }
 
-.time {
+clock .time {
   font-size: 6vw;
   font-family: "Digital";
   color: #90da2d;
 }
 
 calendar {
-  background-color: rgba(255, 0, 0, 0.2);
   position: absolute;
   height: 25%;
   width: 25.2%;
   top: 17.3%;
   left: 36.8%;
+}
+
+calendar .date {
+  position: absolute;
+  left: 5%;
+  top: 3%;
+  font-size: 2vw;
+}
+
+calendar .scrollable {
+  font-size: 1.5vw;
+  top: 15%;
+  left: 5%;
+  height: 85%;
+  width: 95%;
+}
+
+calendar dt {
+  font-weight: bold;
+  color: #ff0000;
+}
+
+calendar dd {
+  margin-bottom: 2%;
+  margin-left: 1%;
 }
 
 laptop {

@@ -1,14 +1,34 @@
-//oauth2 auth
-chrome.identity.getAuthToken(
-	{'interactive': true},
-	function(){
-	  //load Google's javascript client libraries
-    let head = document.getElementsByTagName('head')[0];
-    let script = document.createElement('script');
-    script.src = 'https://apis.google.com/js/client.js?onload=loadClient';
-    head.appendChild(script);
-	}
-);
+function displayDate() {
+	const today = new Date();
+  const day = convertToWeekday(today.getDay());
+	const month = convertToMonthName(today.getMonth());
+  const date = today.getDate();
+  document.getElementById('date').innerHTML = day + ' ' + month + ' ' + date;
+}
+
+function convertToWeekday(i) {
+	const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+	return days[i];
+}
+
+function convertToMonthName(i) {
+	const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+	return months[i];
+}
+
+function getEvents() {
+	//oauth2 auth
+	chrome.identity.getAuthToken(
+		{'interactive': true},
+		function(){
+		  //load Google's javascript client libraries
+	    let head = document.getElementsByTagName('head')[0];
+	    let script = document.createElement('script');
+	    script.src = 'https://apis.google.com/js/client.js?onload=loadClient';
+	    head.appendChild(script);
+		}
+	);
+}
 
 function loadClient() {
   gapi.load();
@@ -40,12 +60,32 @@ function displayEvents(){
     let eventList = document.getElementById('eventList');
     let events = response.result.items;
     for (var i = 0; i < events.length; i++) {
-      let event = document.createElement('li');
-      let eventName = events[i].start.dateTime + '-' + events[i].end.dateTime + ': ' + events[i].summary;
+			let time = document.createElement('dt');
+			let eventTime = formatTime(events[i].start.dateTime) + '-' + formatTime(events[i].end.dateTime);
+			time.appendChild(document.createTextNode(eventTime));
+			eventList.appendChild(time);
+
+      let event = document.createElement('dd');
+      let eventName = events[i].summary;
       event.appendChild(document.createTextNode(eventName));
       eventList.appendChild(event);
     }
   })
+}
+
+function formatTime(dateString) {
+	const timeComponents = dateString.split('T')[1].split(':');
+	var hours = timeComponents[0];
+	var minutes = timeComponents[1];
+	if (parseInt(hours) > 12) {
+		hours = parseInt(hours) - 12;
+		minutes = minutes + ' PM';
+	}
+	else {
+		minutes = minutes + ' AM';
+	}
+	return hours + ':' + minutes;
+
 }
 
 function getToday() {
@@ -59,3 +99,6 @@ function getTomorrow() {
   today.setHours(24, 0, 0, 0);
   return today.toISOString();
 }
+
+displayDate();
+getEvents();
