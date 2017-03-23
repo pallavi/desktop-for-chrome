@@ -6,7 +6,8 @@
   "permissions": [
     "geolocation",
     "identity",
-    "storage"
+    "storage",
+    "topSites"
   ],
   "chrome_url_overrides": {
     "newtab": "src/index.html"

@@ -1,18 +1,20 @@
-function displayNotes() {
-  document.getElementById('noteText').value = '';
-  let noteList = document.getElementById('previousNotes');
-  noteList.innerHTML = '';
-  chrome.storage.sync.get('noteList', (data) => {
-    if (data.noteList){
-      for (var i = 0; i < data.noteList.length; i++) {
-        let noteBackground = document.createElement('li');
-        let note = document.createElement('div');
-        note.className += 'scrollable';
-        noteBackground.appendChild(note);
-        note.appendChild(document.createTextNode(data.noteList[i]));
+function displaySites() {
+  //let sites = document.getElementById('favSites');
+  //sites.innerHTML = '';
+  chrome.topSites.get((data) => {
+    for (var i = 0; i < data.length; i++) {
+      console.log(i);
+    }
+    /*
+    if (data.siteList){
+      for (var i = 0; i < data.siteList.length; i++) {
+        //let noteBackground = document.createElement('li');
+        let site = document.createElement('div');
+        //noteBackground.appendChild(note);
+        site.appendChild(document.createTextNode(data.siteList[i]));
 
         let del = document.createElement('button');
-        del.appendChild(document.createTextNode('x'));
+        //del.appendChild(document.createTextNode('x'));
         let index = i;
         del.addEventListener('click', function() {
           let arr = data.noteList;
@@ -30,9 +32,11 @@ function displayNotes() {
         noteList.appendChild(noteBackground);
       }
     }
+    */
   })
 }
 
+/*
 function addNote() {
   var note = document.getElementById('noteText');
   let noteList = chrome.storage.sync.get('noteList', (data) => {
@@ -52,7 +56,8 @@ function addNote() {
 function clearNotes() {
   chrome.storage.sync.remove('noteList', displayNotes);
 }
+*/
 
-displayNotes();
-document.getElementById('addNote').addEventListener('click', addNote);
-document.getElementById('clearNotes').addEventListener('click', clearNotes);
+displaySites();
+//document.getElementById('addSite').addEventListener('click', addNote);
+//document.getElementById('clearNotes').addEventListener('click', clearNotes);
