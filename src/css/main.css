@@ -42,12 +42,35 @@ body {
 }
 
 window {
-  background-color: rgba(255, 0, 0, 0.2);
   position: absolute;
   height: 53.5%;
   width: 24%;
   top: 9.16%;
   left: 4.67%;
+}
+
+window img {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  height: 100%;
+  width: 100%;
+}
+
+window .temperature {
+  position: absolute;
+  bottom: 17%;
+  right: 7%;
+  font-size: 2.5vw;
+  color: white;
+}
+
+window .weather {
+  position: absolute;
+  bottom: 11%;
+  right: 12%;
+  font-size: 1.5vw;
+  color: white;
 }
 
 clock {

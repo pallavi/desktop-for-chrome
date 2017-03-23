@@ -12,6 +12,7 @@ function displayNotes() {
         note.appendChild(document.createTextNode(data.noteList[i]));
 
         let del = document.createElement('button');
+        //del.appendChild(document.createTextNode('x'));
         let index = i;
         del.addEventListener('click', function() {
           let arr = data.noteList;
