@@ -111,12 +111,15 @@ calendar .date {
 
 calendar .scrollable {
   font-size: 1.5vw;
-  top: 15%;
+  top: 23%;
   left: 5%;
-  height: 85%;
+  height: 75%;
   width: 95%;
 }
 
+calendar dl {
+  margin-top: 2%;
+}
 calendar dt {
   font-weight: bold;
   color: #ff0000;
