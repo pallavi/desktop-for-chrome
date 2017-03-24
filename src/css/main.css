@@ -177,12 +177,11 @@ board {
 
 board button.clear {
   position: absolute;
-  top: -14%;
-  right: -4.5%;
-  border: 1px solid #db2020;
-  border-radius: 5px;
-  background-color: white;
-  color: #db2020;
+  top: -11%;
+  right: -4%;
+  border: none;
+  background-color: #db2020;
+  color: white;
   font-size: 1.25vw;
 }
 
