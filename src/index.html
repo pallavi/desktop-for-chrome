@@ -6,62 +6,66 @@
   </head>
   <body>
     <div class="container">
-        <img class="background" src="img/desktop.png">
-        <div class="content">
-          <a href="https://www.wunderground.com/">
-            <window>
-              <!--<span id="city"></span><br>-->
-              <span id="temperature" class="temperature"></span>
-              <span id="weather" class="weather"></span><br>
-            </window>
-          </a>
-
-          <clock>
-            <span class="time" id="time"></span>
-          </clock>
-
-          <a href="https://calendar.google.com">
-            <calendar>
-              <span class="date" id="date"></span>
-              <div class="scrollable">
-                <dl id="eventList"></dl>
-              </div>
-            </calendar>
-          </a>
-
-          <laptop>
-            <div class="scrollable">
-              <a href="https://www.facebook.com"><img src="img/websites/facebook.png"></a>
-              <a href="https://www.messenger.com"><img src="img/websites/messenger.png"></a>
-              <a href="https://www.gmail.com"><img src="img/websites/gmail.png"></a>
-              <a href="https://www.reddit.com"><img src="img/websites/reddit.png"></a>
-              <a href="https://www.netflix.com"><img src="img/websites/netflix.png"></a>
-              <a href="https://www.github.com"><img src="img/websites/github.png"></a>
-              <a href="https://www.keep.google.com"><img src="img/websites/googlekeep.png"></a>
-              <a href="https://www.huffingtonpost.com"><img src="img/websites/huffpo.png"></a>
-            </div>
-          </laptop>
-
-          <board>
-            <div class="scrollable">
-              <ul id="previousNotes"></ul>
-            </div>
-            <a href="#" id="clearNotes"><button class="clear">clear notes</button></a>
-          </board>
-
-          <note>
-            <div class="scrollable">
-              <textarea id="noteText"></textarea>
-              <div class="button-div">
-                <a href="#" id="addNote"><button>+</button></a>
-              </div>
-            </div>
-          </note>
+      <img class="background" src="img/desktop.png">
+      <div class="content">
+        <div id="colorpicker" class="colorpicker">
         </div>
+
+        <a href="https://www.wunderground.com/">
+          <window>
+            <!--<span id="city"></span><br>-->
+            <span id="temperature" class="temperature"></span>
+            <span id="weather" class="weather"></span><br>
+          </window>
+        </a>
+
+        <clock>
+          <span class="time" id="time"></span>
+        </clock>
+
+        <a href="https://calendar.google.com">
+          <calendar>
+            <span class="date" id="date"></span>
+            <div class="scrollable">
+              <dl id="eventList"></dl>
+            </div>
+          </calendar>
+        </a>
+
+        <laptop>
+          <div class="scrollable">
+            <a href="https://www.facebook.com"><img src="img/websites/facebook.png"></a>
+            <a href="https://www.messenger.com"><img src="img/websites/messenger.png"></a>
+            <a href="https://www.gmail.com"><img src="img/websites/gmail.png"></a>
+            <a href="https://www.reddit.com"><img src="img/websites/reddit.png"></a>
+            <a href="https://www.netflix.com"><img src="img/websites/netflix.png"></a>
+            <a href="https://www.github.com"><img src="img/websites/github.png"></a>
+            <a href="https://www.keep.google.com"><img src="img/websites/googlekeep.png"></a>
+            <a href="https://www.huffingtonpost.com"><img src="img/websites/huffpo.png"></a>
+          </div>
+        </laptop>
+
+        <board>
+          <div class="scrollable">
+            <ul id="previousNotes"></ul>
+          </div>
+          <a href="#" id="clearNotes"><button class="clear">clear notes</button></a>
+        </board>
+
+        <note>
+          <div class="scrollable">
+            <textarea id="noteText"></textarea>
+            <div class="button-div">
+              <a href="#" id="addNote"><button>+</button></a>
+            </div>
+          </div>
+        </note>
+      </div>
     </div>
     <script src="js/calendar.js"></script>
     <script src="js/clock.js"></script>
     <script src="js/notes.js"></script>
+    <script src="js/wall.js"></script>
     <script src="js/weather.js"></script>
   </body>
 </html>

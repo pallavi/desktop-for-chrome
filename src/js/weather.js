@@ -24,7 +24,6 @@ function parseWeatherResponse(data) {
   const weather = JSON.parse(data).current_observation;
   requestWeather(createUrl(weather.display_location.latitude, weather.display_location.longitude, 'astronomy'), function(data) {
     let timeOfDay = getTimeOfDay(data);
-    console.log(timeOfDay);
     //document.getElementById('city').innerHTML = weather.display_location.city + ', ' + weather.display_location.state;
     document.getElementById('temperature').innerHTML = weather.temp_f + '&deg;';
     document.getElementById('weather').innerHTML = weather.weather;
