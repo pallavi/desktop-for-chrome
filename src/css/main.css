@@ -71,6 +71,7 @@ window .temperature {
   right: 7%;
   font-size: 2.5vw;
   color: white;
+  z-index: 1000;
 }
 
 window .weather {
@@ -79,6 +80,7 @@ window .weather {
   right: 12%;
   font-size: 1.5vw;
   color: white;
+  z-index: 1000;
 }
 
 clock {
