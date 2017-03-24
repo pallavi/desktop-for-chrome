@@ -138,11 +138,22 @@ calendar dd {
 }
 
 laptop {
+  background: linear-gradient(to top left, rgba(0, 0, 0, 0.15), rgba(0, 0, 0, 0));
   position: absolute;
   height: 31.4%;
   width: 30.4%;
   top: 52.8%;
   left: 34.6%;
+}
+
+laptop .scrollable {
+  text-align: center;
+  margin-top: 5%;
+}
+
+laptop img {
+  padding: 2%;
+  width: 18%;
 }
 
 board {
