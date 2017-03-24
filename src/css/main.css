@@ -166,8 +166,10 @@ board {
 
 board button.clear {
   position: absolute;
-  bottom: -7.5%;
+  bottom: -12%;
+  left: -4.5%;
   border: none;
+  border-radius: 5px;
   background-color: #db2020;
   color: white;
   font-size: 1.25vw;
@@ -203,7 +205,7 @@ board li button {
   position: absolute;
   top: -1%;
   right: -1%;
-  border-radius: 10px;
+  border-radius: 50%;
   border: none;
   background-color: #db2020;
   color: white;
@@ -242,7 +244,7 @@ note .button-div {
 }
 
 note button {
-  border-radius: 10px;
+  border-radius: 50%;
   border: none;
   background-color: #66c45f;
   color: white;
