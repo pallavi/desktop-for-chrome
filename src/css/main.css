@@ -69,6 +69,21 @@ button {
   border-radius: 50%;
 }
 
+bookshelf {
+  position: absolute;
+  height: 11%;
+  width: 100%;
+  bottom: 69%;
+}
+
+worldmap {
+  position: absolute;
+  height: 26%;
+  width: 82.4%;
+  bottom: 39.5%;
+  left: 8.6%;
+}
+
 window {
   position: absolute;
   height: 17.83%;
