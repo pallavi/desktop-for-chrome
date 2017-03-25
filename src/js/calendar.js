@@ -75,14 +75,19 @@ function displayEvents(){
 
 function formatTime(dateString) {
 	const timeComponents = dateString.split('T')[1].split(':');
-	var hours = timeComponents[0];
+	var hours = parseInt(timeComponents[0]);
 	var minutes = timeComponents[1];
-	if (parseInt(hours) > 12) {
-		hours = parseInt(hours) - 12;
-		minutes = minutes + ' PM';
+	if (hours < 12) {
+		if (hours == 0){
+			hours = 12;
+		}
+		minutes = minutes + ' AM';
 	}
 	else {
-		minutes = minutes + ' AM';
+		if (hours > 12){
+			hours = hours - 12;
+		}
+		minutes = minutes + ' PM';
 	}
 	return hours + ':' + minutes;
 

@@ -7,6 +7,9 @@ function startTime() {
 }
 
 function convertToStandardHours(hrs) {
+  if (hrs == 0) {
+    return 12;
+  }
   return (hrs > 12 ? hrs - 12 : hrs);
 }
 
