@@ -25,12 +25,13 @@ button {
 .container {
   position: fixed;
   bottom: 0;
+  width: 100%;
 }
 
 .background {
   width: 100%;
   min-height: auto;
-  bottom: 0vw;
+  bottom: 0;
 }
 
 .content {
