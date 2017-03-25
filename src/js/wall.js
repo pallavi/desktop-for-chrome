@@ -1,8 +1,8 @@
 const COLORS = [
   '#e8e8e8',  // light gray
-  '#ffd2d2', // red
+  '#f9ebeb', // red
   '#ffe1b4', // orange
-  '#fff27b', // yellow
+  '#fffce0', // yellow
   '#b6d88f', // green
   '#a3d6d1', // bluegreen
   '#bedae6', // blue
