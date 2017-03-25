@@ -91,6 +91,7 @@ window .weather {
   right: 12%;
   font-size: 1.5vw;
   color: white;
+  text-transform: capitalize;
   z-index: 1000;
 }
 

@@ -1,13 +1,11 @@
-const WUNDERGROUND_KEY = 'ff970001b45a69ad';
-
 navigator.geolocation.getCurrentPosition(
   function(data) {
-    requestWeather(createUrl(data.coords.latitude, data.coords.longitude, 'conditions'), parseWeatherResponse);
+    requestWeather(createUrl(data.coords.latitude, data.coords.longitude), parseWeatherResponse);
   }
 )
 
-function createUrl(latitude, longitude, apiData) {
-  return 'http://api.wunderground.com/api/' + WUNDERGROUND_KEY + '/' + apiData + '/q/' + latitude + ',' + longitude + '.json';
+function createUrl(latitude, longitude) {
+  return 'http://api.openweathermap.org/data/2.5/weather?lat=' + latitude + '&lon=' + longitude + '&APPID=fcf5e0c3d0ce4431f83d6595336c77b6';
 }
 
 function requestWeather(requestUrl, callback) {
@@ -21,17 +19,20 @@ function requestWeather(requestUrl, callback) {
 }
 
 function parseWeatherResponse(data) {
-  const weather = JSON.parse(data).current_observation;
-  requestWeather(createUrl(weather.display_location.latitude, weather.display_location.longitude, 'astronomy'), function(data) {
-    let timeOfDay = getTimeOfDay(data);
-    //document.getElementById('city').innerHTML = weather.display_location.city + ', ' + weather.display_location.state;
-    document.getElementById('temperature').innerHTML = weather.temp_f + '&deg;';
-    document.getElementById('weather').innerHTML = weather.weather;
-    displayWeather(weather.weather, timeOfDay);
-  });
+  const response = JSON.parse(data);
+  console.log(response);
+  let timeOfDay = getTimeOfDay(response.sys);
+  //document.getElementById('city').innerHTML = weather.display_location.city + ', ' + weather.display_location.state;
+  document.getElementById('temperature').innerHTML = kelvinToFahrenheit(response.main.temp) + '&deg;';
+  document.getElementById('weather').innerHTML = response.weather[0].description;
+  displayWeather(response.weather[0], timeOfDay);
 }
 
-function displayWeather(weather, timeOfDay) {
+function kelvinToFahrenheit(k) {
+  return Math.round(k * (9/5) - 459.67);
+}
+
+function displayWeather(data, timeOfDay) {
   const window = document.getElementsByTagName('window')[0];
   const weatherImgDir = 'img/weather/';
 
@@ -41,8 +42,11 @@ function displayWeather(weather, timeOfDay) {
     window.appendChild(weatherImg);
   }
 
-  if (weather === 'Clear' || weather === 'Partly Cloudy' || weather === 'Scattered Clouds') {
-    if (weather !== 'Clear') {
+  const weather = data.main;
+  const description = data.description;
+
+  if (description === 'clear sky' || description === 'few clouds' || description === 'scattered clouds') {
+    if (description !== 'clear sky') {
       addWeatherImg('partlycloudy.png');
     }
 
@@ -66,13 +70,12 @@ function displayWeather(weather, timeOfDay) {
       addWeatherImg('dawndusk.png');
     }
 
-    if (weather.indexOf('Thunderstorm') > -1) {
+    if (weather === 'Thunderstorm') {
       addWeatherImg('lightning.png');
-    }
-
-    if (weather.indexOf('Rain') > -1 || weather.indexOf('Drizzle') > -1) {
       addWeatherImg('rainy.png');
-    } else if (weather.indexOf('Snow') > -1 || weather.indexOf('Ice') > -1 || weather.indexOf('Hail') > -1) {
+    } else if (weather === 'Rain' || weather === 'Drizzle' || description.indexOf('storm') > -1 || description === 'hurricane') {
+      addWeatherImg('rainy.png');
+    } else if (weather === 'Snow') {
       addWeatherImg('snowy.png');
     }
   }
@@ -85,17 +88,14 @@ function addWeatherImg(window, imgUrl) {
 }
 
 function getTimeOfDay(data) {
-  data = JSON.parse(data);
-
-  var sunrise = new Date();
-  sunrise.setHours(data.sun_phase.sunrise.hour);
-  sunrise.setMinutes(data.sun_phase.sunrise.minute);
-
-  var sunset = new Date();
-  sunset.setHours(data.sun_phase.sunset.hour);
-  sunset.setMinutes(data.sun_phase.sunset.minute);
-
   var now = new Date();
+
+  var sunrise = new Date(data.sunrise * 1000);
+  sunrise.setDate(now.getDate());
+
+  var sunset = new Date(data.sunset * 1000);
+  sunset.setDate(now.getDate());
+
   if (now < sunrise) {
     // Dawn is the 30 min period before sunrise
     return ((sunrise - now)/60000 < 30 ? 'dawn' : 'night');
