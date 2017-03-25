@@ -66,6 +66,7 @@ window {
   width: 24%;
   top: 9.16%;
   left: 4.67%;
+  text-shadow: 0px 0px 0.5px #a9a9a9;
 }
 
 window img {
@@ -182,6 +183,7 @@ board button.clear {
   right: -4%;
   border: none;
   background-color: #db2020;
+  opacity: 0.8;
   color: white;
   font-size: 1.25vw;
 }
