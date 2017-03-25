@@ -48,8 +48,17 @@ button {
   overflow: scroll;
 }
 
+.map {
+  width: 100%;
+  min-height: auto;
+  top: 0vw;
+}
 .colorpicker {
+  position: absolute;
+  bottom: 31%;
   text-align: center;
+  left: 30%;
+  width: 40%;
 }
 
 .colorbutton {
@@ -62,9 +71,9 @@ button {
 
 window {
   position: absolute;
-  height: 53.5%;
+  height: 17.83%;
   width: 24%;
-  top: 9.16%;
+  bottom: 12.5%;
   left: 4.67%;
   text-shadow: 0px 0px 0.5px #a9a9a9;
 }
@@ -101,9 +110,9 @@ clock {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 15.6%;
+  height: 5.2%;
   width: 15.9%;
-  top: 73.6%;
+  bottom: 3.6%;
   left: 6.6%;
 }
 
@@ -113,11 +122,20 @@ clock .time {
   color: #90da2d;
 }
 
+clock .timeperiod {
+  font-size: 1.5vw;
+  font-family: "Digital";
+  color: #90da2d;
+  position: absolute;
+  right: 5%;
+  bottom: 5%;
+}
+
 calendar {
   position: absolute;
-  height: 25%;
+  height: 8.3%;
   width: 25.2%;
-  top: 17.3%;
+  bottom: 19.3%;
   left: 36.8%;
 }
 
@@ -153,9 +171,9 @@ calendar dd {
 laptop {
   background: linear-gradient(to top left, rgba(0, 0, 0, 0.15), rgba(0, 0, 0, 0));
   position: absolute;
-  height: 31.4%;
+  height: 10.5%;
   width: 30.4%;
-  top: 52.8%;
+  bottom: 5.3%;
   left: 34.6%;
 }
 
@@ -171,9 +189,9 @@ laptop img {
 
 board {
   position: absolute;
-  height: 49.8%;
+  height: 16.6%;
   width: 22.9%;
-  top: 11%;
+  bottom: 13.1%;
   left: 71.5%;
 }
 
@@ -226,10 +244,10 @@ board li button {
 
 note {
   position: absolute;
-  height: 13.4%;
+  height: 4.35%;
   width: 7.7%;
-  top: 61%;
-  left: 86.6%;
+  bottom: 8.6%;
+  left: 86.52%;
   box-shadow: 2px 2px 2px #a9a9a9;
 }
 
