@@ -42,7 +42,6 @@ function addNote() {
       if (note.value !== '') {
         let arr = data.noteList;
         arr.push(note.value);
-        console.log(arr);
         chrome.storage.sync.set({ 'noteList': arr }, displayNotes);
       }
     }
@@ -55,4 +54,9 @@ function clearNotes() {
 
 displayNotes();
 document.getElementById('addNote').addEventListener('click', addNote);
+document.getElementById('noteText').addEventListener('keypress', function (e) {
+  if (e.keyCode === 13) {
+    addNote();
+  }
+});
 document.getElementById('clearNotes').addEventListener('click', clearNotes);
