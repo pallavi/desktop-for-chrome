@@ -38,7 +38,7 @@ function loadClient() {
 function authorize(){
   gapi.auth.authorize(
 		{
-			client_id: '684351759805-acrnrgfqhq33pcr6kdj654fp54ogu2km.apps.googleusercontent.com',
+			client_id: '966242545928-bt256f814gr0gmkcpjiisrshndsscqvs.apps.googleusercontent.com',
 			immediate: true,
 			scope: 'https://www.googleapis.com/auth/calendar.readonly'
 		},

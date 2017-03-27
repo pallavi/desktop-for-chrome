@@ -2,15 +2,14 @@
   "manifest_version": 2,
   "name": "Desktop for Chrome",
   "description": "A Chrome dashboard that looks like your work station",
-  "version": "1.0",
+  "version": "1.0.3",
   "icons": {
     "128": "src/img/icons/desktop128.png"
   },
   "permissions": [
     "geolocation",
     "identity",
-    "storage",
-    "topSites"
+    "storage"
   ],
   "chrome_url_overrides": {
     "newtab": "src/index.html"
@@ -20,9 +19,18 @@
     "scripts": ["src/js/calendar.js"]
   },
   "oauth2": {
-    "client_id": "684351759805-acrnrgfqhq33pcr6kdj654fp54ogu2km.apps.googleusercontent.com",
+    "client_id": "966242545928-bt256f814gr0gmkcpjiisrshndsscqvs.apps.googleusercontent.com",
     "scopes": [
       "https://www.googleapis.com/auth/calendar.readonly"
     ]
-  }
+  },
+  "key": "-----BEGIN PUBLIC KEY-----
+MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA14Dp5B6vH/Xt+hQTEILY
+J2g4LSqY3EysTsdwOa3ha4LCY2moeaZYMC22uuqo2EVq9l0a1HhJkwv5B2Ib3loc
+9A7iEbV2pNF+1qHIhJR4iN4AwE9F/Nzy2z1tDnm4a5LCb+3GwzwSW/WOAWTdEkGp
++FjFul78iqFwjgtxB8phGKaLcfVZ9CSreSZw2zfPV7o7lBPdAeDOlnd/x4D/Cv88
+9U9zIB1tmuRcqqb56Tl2PC1KSfVoPswVzGZaG2lY+dtyS1lz4h+qrshHjfvUub4X
+yTaFBQmZcjgHtx+Vx0hIfwTpxS6j9qflREoZdKg8BDTw6i7AJWNnX59rt1Y2PdKs
+7QIDAQAB
+-----END PUBLIC KEY-----"
 }
