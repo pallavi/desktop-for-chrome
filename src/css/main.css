@@ -46,7 +46,18 @@ button {
   position: absolute;
   height: 100%;
   width: 100%;
-  overflow: scroll;
+  overflow: overlay;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+  background: transparent;
+  -webkit-border-radius: 100px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.5);
+  -webkit-border-radius: 100px;
 }
 
 .map {
