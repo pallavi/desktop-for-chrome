@@ -3,6 +3,7 @@
     <link href="css/main.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Coming+Soon" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet" type="text/css">
   </head>
   <body>
     <div class="container">
@@ -44,14 +45,17 @@
         </a>
 
         <laptop>
-          <button id="newSite" class="add">add shortcut</button>
-          <button id="clearSites" class="clear">clear</button>
 
           <div id="sitePicker" class="modal">
-            <div class="modal-content">
-              <textarea id="siteUrl"></textarea>
-              <textarea id="siteTitle"></textarea>
-              <span class="close">cancel</span>
+            <button class="close">x</button>
+            <div id="sitePickerContent" class="modal-content">
+              <div class="customSiteInput">
+                <b>Logo:</b> <input size="7" id="siteIconTitle" value="custom"></textarea><br>
+                <b>Color:</b> <input size="7" class="jscolor" value="bada55" id="siteIconColor"></textarea><br>
+                <b>URL:</b> http://<input id="siteUrl"></textarea><br>
+                <button id="customSite" class="customicon">custom</button>
+              </div>
+              <br>
             </div>
           </div>
 
@@ -67,6 +71,8 @@
             <a href="http://www.huffingtonpost.com"><img src="img/websites/huffpo.png"></a>
           -->
           </div>
+          <button id="newSite" href="#" class="add">+</button>
+          <button id="clearSites" class="clear">clear sites</button>
         </laptop>
 
         <board>
@@ -86,6 +92,7 @@
         </note>
       </div>
     </div>
+    <script src="js/jscolor.js"></script>
     <script src="js/calendar.js"></script>
     <script src="js/clock.js"></script>
     <script src="js/notes.js"></script>

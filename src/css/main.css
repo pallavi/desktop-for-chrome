@@ -17,6 +17,10 @@ button {
   outline: none;
 }
 
+button:hover {
+  cursor: pointer;
+}
+
 @font-face {
   font-family: "Digital";
   src: url("../fonts/digital-7.regular.ttf");
@@ -46,7 +50,11 @@ button {
   position: absolute;
   height: 100%;
   width: 100%;
-  overflow: overlay;
+  overflow: hidden;
+}
+
+.scrollable:hover {
+  overflow:overlay;
 }
 
 ::-webkit-scrollbar {
@@ -204,42 +212,98 @@ laptop {
   left: 34.6%;
 }
 
-/* The Modal (background) */
+laptop button.add {
+  border: none;
+  background-color: #66c45f;
+  color: white;
+  position: absolute;
+  bottom: 0%;
+  right: 0%;
+}
+
+laptop button.clear {
+  position: absolute;
+  top: -25%;
+  right: 0.05%;
+  border: none;
+  background-color: #db2020;
+  opacity: 0.8;
+  color: white;
+  font-size: 1.25vw;
+}
+
 .modal {
-    display: none; /* Hidden by default */
-    position: fixed; /* Stay in place */
-    z-index: 1; /* Sit on top */
-    left: 0;
-    top: 0;
-    width: 100%; /* Full width */
-    height: 100%; /* Full height */
-    overflow: auto; /* Enable scroll if needed */
-    background-color: rgb(0,0,0); /* Fallback color */
-    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  display: none;
+  position: absolute;
+  overflow: hidden;
+  z-index: 1;
+  width: 134%;
+  height: 147%;
+  background-color: rgb(247, 247, 247);
+  top: -103%;
+  left: -18%;
+  border: 0.25px solid #e2e2e2;
+}
+
+.modal:hover {
+  overflow-y: overlay;
+  overflow-x: hidden;
+}
+
+.modal img {
+  width: 15%;
 }
 
 /* Modal Content/Box */
 .modal-content {
-    background-color: #fefefe;
-    margin: 15% auto; /* 15% from the top and centered */
-    padding: 20px;
-    border: 1px solid #888;
-    width: 80%; /* Could be more or less, depending on screen size */
+  position: absolute;
+  margin: 5%;
+  width: 99%;
+  height: 90%;
+  font-size: 1.5vw;
+}
+
+.customSiteInput {
+  position: relative;
+  left: 30%;
+}
+
+.popularSites {
+  height: 100%;
+}
+
+.modal-content input {
+  font-size: 1.5vw;
+  font-family: 'Open Sans';
+  padding-left: 2%;
+  margin-bottom: 0.5%;
+  border: none;
+  background: rgba(0,0,0,0.05);
 }
 
 /* The Close Button */
 .close {
-    color: #aaa;
-    float: right;
-    font-size: 28px;
-    font-weight: bold;
+    position: absolute;
+    left: 0;
+    top: 0;
+    border-radius: 50%;
+    border: none;
+    background-color: #db2020;
+    color: white;
 }
 
-.close:hover,
-.close:focus {
-    color: black;
-    text-decoration: none;
-    cursor: pointer;
+.customicon {
+  position: absolute;
+  left: -25%;
+  top: -2%;
+  border: none;
+  border-radius: 50%;
+  height: 100%;
+  width: 19%;
+  color: white;
+  background: #bada55;
+  font-size: 1.2vmax;
+  font-family: "Quicksand";
 }
 
 laptop .scrollable {
@@ -247,20 +311,22 @@ laptop .scrollable {
   position: absolute;
   left: 0;
   top: 0;
-  margin-top: 5%;
+  margin-top: 0%;
   margin-left: 0%;
+  padding-top: 1%;
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  height: 91%;
+  height: 98.7%;
 }
 
 laptop .scrollable .site {
   display: flex;
   width: 20%;
   height: 32%;
-  padding-top: 4%;
-  padding-left: 2%;
+  padding-top: 6%;
+  padding-left: 3%;
+  padding-bottom: 2%;
 }
 
 laptop .scrollable .site:hover {
@@ -269,7 +335,7 @@ laptop .scrollable .site:hover {
 
 laptop .scrollable .site img {
   position: absolute;
-  height: 28%;
+  height: 32%;
 }
 
 laptop .scrollable .site button {
@@ -279,6 +345,18 @@ laptop .scrollable .site button {
   border: none;
   background-color: #db2020;
   color: white;
+}
+
+laptop .scrollable .site button.siteicon {
+  display: block;
+  border-radius: 50%;
+  height: 32%;
+  width: 18.8%;
+  color: white;
+  font-size: 1vmax;
+  word-wrap: normal;
+  text-align: center;
+  font-family: "Quicksand";
 }
 
 board {

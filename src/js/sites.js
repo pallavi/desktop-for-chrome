@@ -28,7 +28,9 @@ function displaySites() {
         }
         else {
           siteIcon = document.createElement('button');
-          //set button text to site.title
+          siteIcon.className += 'siteicon';
+          siteIcon.appendChild(document.createTextNode(site.title));
+          siteIcon.style.background = site.color;
         }
 
         let del = document.createElement('button');
@@ -59,7 +61,7 @@ function getImageUrl(siteLink) {
 }
 
 function setupSitePicker() {
-  let sitePicker = document.getElementById('sitePicker');
+  let sitePickerContent = document.getElementById('sitePickerContent');
   for (var i = 0; i < POPULAR_SITES.length; i++) {
     let siteIcon = document.createElement('img');
     siteIcon.src = 'img/websites/' + POPULAR_SITES[i] + '.png';
@@ -71,12 +73,30 @@ function setupSitePicker() {
       }
       console.log(site);
       addSite(site);
-      closeSitePicker();
+      //closeSitePicker();
       displaySites();
     })
-    sitePicker.appendChild(siteIcon);
+    sitePickerContent.appendChild(siteIcon);
   }
   document.getElementsByClassName("close")[0].addEventListener('click', closeSitePicker);
+  document.getElementById('customSite').addEventListener('click', function () {
+    let site = {
+      'type': 'custom',
+      'siteUrl': 'http://' + document.getElementById('siteUrl').value,
+      'title': document.getElementById('siteIconTitle').value,
+      'color': '#' + document.getElementById('siteIconColor').value
+    };
+    console.log(site);
+    addSite(site);
+    clearCustomSiteInfo();
+    displaySites();
+  })
+  document.getElementById('siteIconTitle').addEventListener('change', function () {
+    document.getElementById('customSite').innerHTML = document.getElementById('siteIconTitle').value;
+  });
+  document.getElementById('siteIconColor').addEventListener('change', function () {
+    document.getElementById('customSite').style.backgroundColor = '#' + document.getElementById('siteIconColor').value;
+  });
 }
 
 function addSite(site) {
@@ -90,11 +110,18 @@ function addSite(site) {
       chrome.storage.sync.set({ 'siteList': arr }, displaySites);
     }
   })
-  console.log(data.siteList);
 }
 
 function clearSites() {
   chrome.storage.sync.remove('siteList', displaySites);
+}
+
+function clearCustomSiteInfo() {
+  document.getElementById('siteIconTitle').value = 'custom';
+  document.getElementById('siteIconColor').value = 'bada55';
+  document.getElementById('siteUrl').value = '';
+  document.getElementById('customSite').style.backgroundColor = '#bada55';
+  document.getElementById('customSite').innerHTML = 'custom';
 }
 
 function openSitePicker() {
