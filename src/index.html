@@ -44,7 +44,19 @@
         </a>
 
         <laptop>
-          <div class="scrollable">
+          <button id="newSite" class="add">add shortcut</button>
+          <button id="clearSites" class="clear">clear</button>
+
+          <div id="sitePicker" class="modal">
+            <div class="modal-content">
+              <textarea id="siteUrl"></textarea>
+              <textarea id="siteTitle"></textarea>
+              <span class="close">cancel</span>
+            </div>
+          </div>
+
+          <div id="sites" class="scrollable">
+            <!--
             <a href="http://www.facebook.com"><img src="img/websites/facebook.png"></a>
             <a href="http://www.messenger.com"><img src="img/websites/messenger.png"></a>
             <a href="http://www.gmail.com"><img src="img/websites/gmail.png"></a>
@@ -53,6 +65,7 @@
             <a href="http://www.github.com"><img src="img/websites/github.png"></a>
             <a href="http://keep.google.com"><img src="img/websites/googlekeep.png"></a>
             <a href="http://www.huffingtonpost.com"><img src="img/websites/huffpo.png"></a>
+          -->
           </div>
         </laptop>
 
@@ -76,6 +89,7 @@
     <script src="js/calendar.js"></script>
     <script src="js/clock.js"></script>
     <script src="js/notes.js"></script>
+    <script src="js/sites.js"></script>
     <script src="js/wall.js"></script>
     <script src="js/weather.js"></script>
   </body>
