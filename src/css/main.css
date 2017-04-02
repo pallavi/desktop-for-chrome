@@ -217,7 +217,7 @@ laptop button.add {
   background-color: #66c45f;
   color: white;
   position: absolute;
-  bottom: 0%;
+  bottom: -0.2%;
   right: 0%;
 }
 
@@ -406,8 +406,8 @@ board li {
 board li button {
   display: none;
   position: absolute;
-  top: -1%;
-  right: -1%;
+  top: -5%;
+  left: -5%;
   border-radius: 50%;
   border: none;
   background-color: #db2020;
@@ -448,7 +448,6 @@ note .button-div {
 }
 
 note button {
-  border-radius: 50%;
   border: none;
   background-color: #66c45f;
   color: white;
