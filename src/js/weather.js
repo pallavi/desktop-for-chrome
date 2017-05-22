@@ -1,8 +1,45 @@
-navigator.geolocation.getCurrentPosition(
-  function(data) {
-    requestWeather(createUrl(data.coords.latitude, data.coords.longitude), parseWeatherResponse);
-  }
-)
+var TEMPERATURE_SCALE;
+var TEMPERATURE_KELVIN;
+
+function getTemperatureScale() {
+  chrome.storage.sync.get('tempScale', (data) => {
+    if (data.tempScale) {
+      TEMPERATURE_SCALE = data.tempScale;
+    } else {
+      setTemperatureScale('F');
+    }
+  })
+}
+
+function setTemperatureScale(scale, update) {
+  chrome.storage.sync.set({ 'tempScale': scale }, function () {
+    TEMPERATURE_SCALE = scale;
+    if (update) {
+      updateTemperatureDisplay();
+    }
+  });
+}
+
+function addListenerToSwitchTemperatureScale() {
+  let temperature = document.getElementById('temperature');
+  temperature.addEventListener('click', function(event) {
+    event.preventDefault();
+    if (TEMPERATURE_SCALE == 'C') {
+      setTemperatureScale('F', true);
+    }
+    else {
+      setTemperatureScale('C', true);
+    }
+  });
+}
+
+function getWeather() {
+  navigator.geolocation.getCurrentPosition(
+    function(data) {
+      requestWeather(createUrl(data.coords.latitude, data.coords.longitude), parseWeatherResponse);
+    }
+  );
+}
 
 function createUrl(latitude, longitude) {
   return 'http://api.openweathermap.org/data/2.5/weather?lat=' + latitude + '&lon=' + longitude + '&APPID=fcf5e0c3d0ce4431f83d6595336c77b6';
@@ -20,16 +57,27 @@ function requestWeather(requestUrl, callback) {
 
 function parseWeatherResponse(data) {
   const response = JSON.parse(data);
-  console.log(response);
   let timeOfDay = getTimeOfDay(response.sys);
-  //document.getElementById('city').innerHTML = weather.display_location.city + ', ' + weather.display_location.state;
-  document.getElementById('temperature').innerHTML = kelvinToFahrenheit(response.main.temp) + '&deg;';
+
+  TEMPERATURE_KELVIN = response.main.temp;
+  updateTemperatureDisplay();
+  addListenerToSwitchTemperatureScale();
   document.getElementById('weather').innerHTML = response.weather[0].description;
   displayWeather(response.weather[0], timeOfDay);
 }
 
-function kelvinToFahrenheit(k) {
-  return Math.round(k * (9/5) - 459.67);
+function updateTemperatureDisplay() {
+  document.getElementById('temperature').innerHTML = convertTemperature() + '&deg;';
+}
+
+function convertTemperature() {
+  if (TEMPERATURE_SCALE == 'C') {
+    // Kelvin to Celsius
+    return Math.round(TEMPERATURE_KELVIN - 273.15);
+  } else {
+    // Kelvin to Fahrenheit
+    return Math.round(TEMPERATURE_KELVIN * (9/5) - 459.67);
+  }
 }
 
 function displayWeather(data, timeOfDay) {
@@ -109,3 +157,6 @@ function getTimeOfDay(data) {
     return ((now - sunset)/60000 < 30 ? 'dusk' : 'night');
   }
 }
+
+getTemperatureScale();
+getWeather();
