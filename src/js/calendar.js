@@ -3,7 +3,10 @@ function displayDate() {
   const day = convertToWeekday(today.getDay());
 	const month = convertToMonthName(today.getMonth());
   const date = today.getDate();
-  document.getElementById('date').innerHTML = day + ' ' + month + ' ' + date;
+  const calendarHeader = document.getElementById('date');
+  if (calendarHeader) {
+    calendarHeader.innerHTML = day + ' ' + month + ' ' + date;
+  }
 }
 
 function convertToWeekday(i) {
