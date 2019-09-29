@@ -2,7 +2,7 @@
   "manifest_version": 2,
   "name": "Desktop for Chrome",
   "description": "A Chrome dashboard that looks like your work station",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "icons": {
     "128": "src/img/icons/desktop128.png"
   },
@@ -14,7 +14,7 @@
   "chrome_url_overrides": {
     "newtab": "src/index.html"
   },
-  "content_security_policy": "script-src https://*.google.com 'unsafe-eval'; object-src 'self'",
+  "content_security_policy": "script-src 'self' https://*.google.com 'unsafe-eval'; object-src 'self'",
   "background": {
     "scripts": ["src/js/calendar.js"]
   },
